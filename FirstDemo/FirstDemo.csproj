@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>FirstDemo.DemoOtherFeatures</StartupObject>
+    <StartupObject>FirstDemo.DemoAutoImplementedProps</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MathOperations">
@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoAbstractClassMethods.cs" />
+    <Compile Include="DemoAutoImplementedProps.cs" />
     <Compile Include="DemoFunctionOverloading.cs" />
     <Compile Include="DemoMultiLvlInheritence.cs" />
     <Compile Include="DemoOtherFeatures.cs" />
