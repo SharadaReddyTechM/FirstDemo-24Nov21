@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>FirstDemo.DemoAutoImplementedProps</StartupObject>
+    <StartupObject>FirstDemo.WorkingWithAnonymousMethods</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MathOperations">
@@ -58,9 +58,11 @@
     <Compile Include="DemoStaticMembers.cs" />
     <Compile Include="DemoTypeConvsions.cs" />
     <Compile Include="DemoUsingDLL.cs" />
+    <Compile Include="DemoWorkingWithDelegates.cs" />
     <Compile Include="OwnClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkingWithAnonymousMethods.cs" />
     <Compile Include="WorkingWithConstructors.cs" />
     <Compile Include="WorkingWithInterfaces.cs" />
   </ItemGroup>
