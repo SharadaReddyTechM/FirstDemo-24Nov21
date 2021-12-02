@@ -28,17 +28,93 @@ namespace FirstDemo
                     case 1:
                         {
                             dbContextObject = new DataClasses1DataContext();
+                            Console.Clear();
+                            tblEmployee emp = new tblEmployee();
+                            //logic to get the employee Id automatically and give next number in sequence.
+                            if (dbContextObject.tblEmployees.ToList().Count != 0)
+                            {
+                                //int count = dbContextObject.tblEmployees.ToList().Count;
+                                int count = dbContextObject.tblEmployees.Max(e => e.EmployeeId);
+                                emp.EmployeeId = count + 1;
+                            }
+                            else
+                            {
+                                emp.EmployeeId = 101;
+                            }
+                            // Console.WriteLine("Please enter employee ID");
+                            Console.WriteLine("please enter the Employee Name");
+                            emp.EmployeeName = Console.ReadLine();
 
+                            Console.WriteLine("please enter the Employee Gender");
+                            emp.Gender = Convert.ToChar(Console.ReadLine());
+
+                            Console.WriteLine("please enter the Employee Mobile Number");
+                            emp.Mobile = Console.ReadLine();
+
+                            dbContextObject.tblEmployees.InsertOnSubmit(emp);
+
+                            dbContextObject.SubmitChanges();
+
+                            Console.WriteLine("Employee Id for your future references: " + emp.EmployeeId);
+                            Console.ReadLine();
                             break;
                         }
                     case 2:
                         {
                             dbContextObject = new DataClasses1DataContext();
+                            Console.Clear();
+                            //step2: Reading one records from the Employee table
+                            Console.WriteLine("Please enter the employee id, whose details have to be updated");
+                            int id = Convert.ToInt32(Console.ReadLine());
+                            //var emp = dbContextObject.tblEmployees.Where(e => e.EmployeeId == id).Select(e => e);
+                            var emp = dbContextObject.tblEmployees.FirstOrDefault(e => e.EmployeeId == id);
+                            if (emp != null)
+                            {
+                                Console.WriteLine("Please enter correct employee name");
+                                emp.EmployeeName = Console.ReadLine();
+
+                                Console.WriteLine("Please enter correct gender of employee");
+                                emp.Gender = Convert.ToChar(Console.ReadLine());
+
+                                Console.WriteLine("Please enter correct mobile number");
+                                emp.Mobile = Console.ReadLine();
+                                //dbContextObject.tblEmployees.InsertOnSubmit(emp);
+                                //dbContextObject.tblEmployees.DeleteOnSubmit(emp);
+                                dbContextObject.SubmitChanges();
+                            }
+                            else
+                            {
+                                Console.WriteLine("employee with given id doesn't exist in the database table");
+                            }
+                            Console.ReadLine();
                             break;
                         }
                     case 3:
                         {
                             dbContextObject = new DataClasses1DataContext();
+                            Console.Clear();
+                            //step2: Reading one records from the Employee table
+                            Console.WriteLine("Please enter the employee id, whose details have deleted");
+                            int id = Convert.ToInt32(Console.ReadLine());
+                            //var emp = dbContextObject.tblEmployees.Where(e => e.EmployeeId == id).Select(e => e);
+                            var emp = dbContextObject.tblEmployees.FirstOrDefault(e => e.EmployeeId == id);
+                            if (emp != null)
+                            {
+                                Console.WriteLine("You are about to delete the employee");
+                                Console.WriteLine("Do you wish to continue?\nPlease enter y-->Yes and n-->No");
+                                char ch = Convert.ToChar(Console.ReadLine());
+                                if(ch=='y'||ch=='Y')
+                                {
+                                    dbContextObject.tblEmployees.DeleteOnSubmit(emp);
+                                    dbContextObject.SubmitChanges();
+                                }                                
+                            }
+                            else
+                            {
+
+                                Console.WriteLine("employee with given id doesn't exist in the database table");
+                            }
+                            Console.ReadLine();
                             break;
                         }
                     case 4:
@@ -49,8 +125,8 @@ namespace FirstDemo
                             //step2: Reading one records from the Employee table
                             Console.WriteLine("Please enter the employee id, whose details have displayed");
                             int id = Convert.ToInt32(Console.ReadLine());
-                            //var emp = dbContextObject.tblEmplyees.Where(e => e.EmployeeId == id).Select(e => e);
-                            var emp = dbContextObject.tblEmplyees.FirstOrDefault(e => e.EmployeeId == id);
+                            //var emp = dbContextObject.tblEmployees.Where(e => e.EmployeeId == id).Select(e => e);
+                            var emp = dbContextObject.tblEmployees.FirstOrDefault(e => e.EmployeeId == id);
                             if (emp != null)
                             {
                                 Console.WriteLine("Employee Id: " + emp.EmployeeId);
@@ -72,7 +148,7 @@ namespace FirstDemo
                             dbContextObject = new DataClasses1DataContext();
                             Console.Clear();
                             //step2: Reading all records from the Employee table
-                            var emps = dbContextObject.tblEmplyees.ToList();
+                            var emps = dbContextObject.tblEmployees.ToList();
                             if (emps != null && emps.Count != 0)
                             {
                                 foreach (var item in emps)

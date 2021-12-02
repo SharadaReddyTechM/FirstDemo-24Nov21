@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SampleDb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SampleDb.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="FirstDemo.Properties.Settings" SettingsPropertyName="SampleDbConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tblEmplyee" Member="tblEmplyees">
-    <Type Name="tblEmplyee">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SampleDb.mdf;Integrated Security=True" SettingsObjectName="FirstDemo.Properties.Settings" SettingsPropertyName="SampleDbConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblEmployee" Member="tblEmployees">
+    <Type Name="tblEmployee">
       <Column Name="EmployeeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="EmployeeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Gender" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Column Name="Mobile" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

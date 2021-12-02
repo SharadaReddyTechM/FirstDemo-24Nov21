@@ -30,13 +30,13 @@ namespace FirstDemo
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InserttblEmplyee(tblEmplyee instance);
-    partial void UpdatetblEmplyee(tblEmplyee instance);
-    partial void DeletetblEmplyee(tblEmplyee instance);
+    partial void InserttblEmployee(tblEmployee instance);
+    partial void UpdatetblEmployee(tblEmployee instance);
+    partial void DeletetblEmployee(tblEmployee instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::FirstDemo.Properties.Settings.Default.SampleDbConnectionString, mappingSource)
+				base(global::FirstDemo.Properties.Settings.Default.SampleDbConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -65,17 +65,17 @@ namespace FirstDemo
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<tblEmplyee> tblEmplyees
+		public System.Data.Linq.Table<tblEmployee> tblEmployees
 		{
 			get
 			{
-				return this.GetTable<tblEmplyee>();
+				return this.GetTable<tblEmployee>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblEmplyee")]
-	public partial class tblEmplyee : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblEmployee")]
+	public partial class tblEmployee : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -102,7 +102,7 @@ namespace FirstDemo
     partial void OnMobileChanged();
     #endregion
 		
-		public tblEmplyee()
+		public tblEmployee()
 		{
 			OnCreated();
 		}
@@ -167,7 +167,7 @@ namespace FirstDemo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="Char(10) NOT NULL", CanBeNull=false)]
 		public string Mobile
 		{
 			get
