@@ -10,17 +10,35 @@ namespace FirstDemo
     {
         static void Main(string[] args)
         {
-            int a;
-            Console.WriteLine("Enter any number");
+            int a,b;
+            
             try
             {
+                Console.WriteLine("Enter first number");
                 a = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Entered Value = " + a);
+                Console.WriteLine("Enter second number");
+                b = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Quotient Value = " + (a/b));
             }
-            catch(Exception ex)
+            
+            catch (FormatException fe)
             {
-                Console.WriteLine("The value you have submitted is too small or too large for the varibale to hold");
+                Console.WriteLine("In FormatException Handler Block");
+                Console.WriteLine(fe.Message);
+            }
+            catch(DivideByZeroException de)
+            {
+                Console.WriteLine("In DivideByZeroException Handler Block");
+                Console.WriteLine(de.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("In Exception Handler Block");
+                //Console.WriteLine("The value you have submitted is too small or too large for the varibale to hold");
+                Console.WriteLine("The program stopped because of the following reason");
+                Console.WriteLine(ex.Message);
             }
             finally
             {
